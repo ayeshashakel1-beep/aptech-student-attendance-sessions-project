@@ -1,0 +1,302 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-warning: var(--warning);
+  --color-status-present: var(--status-present);
+  --color-status-excused: var(--status-excused);
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.985 0.004 95);
+  --foreground: oklch(0.24 0.02 255);
+  --card: oklch(0.998 0.003 95);
+  --card-foreground: oklch(0.24 0.02 255);
+  --popover: oklch(0.998 0.003 95);
+  --popover-foreground: oklch(0.24 0.02 255);
+  --primary: oklch(0.37 0.09 255);
+  --primary-foreground: oklch(0.99 0.002 95);
+  --secondary: oklch(0.95 0.012 250);
+  --secondary-foreground: oklch(0.3 0.05 255);
+  --muted: oklch(0.965 0.006 250);
+  --muted-foreground: oklch(0.5 0.02 255);
+  --accent: oklch(0.95 0.04 80);
+  --accent-foreground: oklch(0.33 0.06 255);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.72 0.16 78);
+  --status-present: oklch(0.56 0.12 154);
+  --status-excused: oklch(0.5 0.1 240);
+  --border: oklch(0.9 0.012 250);
+  --input: oklch(0.94 0.012 250);
+  --ring: oklch(0.37 0.09 255);
+  --chart-1: oklch(0.37 0.09 255);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.21 0.04 258);
+  --sidebar-foreground: oklch(0.96 0.01 95);
+  --sidebar-primary: oklch(0.8 0.15 78);
+  --sidebar-primary-foreground: oklch(0.2 0.03 258);
+  --sidebar-accent: oklch(0.29 0.04 255);
+  --sidebar-accent-foreground: oklch(0.98 0.004 95);
+  --sidebar-border: oklch(0.31 0.03 255);
+  --sidebar-ring: oklch(0.8 0.15 78);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+/* Academic selector cards */
+.academic-filter-grid > div { min-width: 0; transition: box-shadow 150ms ease, border-color 150ms ease; }
+.academic-filter-grid > div:focus-within { border-color: hsl(var(--primary)); box-shadow: 0 0 0 2px hsl(var(--primary) / .12); }
+.academic-filter-grid button[role="combobox"] { min-height: 43px; font-size: .94rem; font-weight: 600; border-radius: .6rem; background: hsl(var(--background)); }
+
+/* Student Attendance Sessions: polished accessible interaction states */
+.sas-page {max-width: 1550px; margin-inline:auto;}
+.sas-page .sas-panel {border-radius: 1.3rem; box-shadow:0 6px 24px -18px rgba(18,36,70,.35); transition: box-shadow .22s ease, border-color .22s ease;}
+.sas-page .sas-panel:hover {box-shadow:0 18px 44px -25px rgba(18,36,70,.33); border-color: hsl(var(--primary)/.3);}
+.sas-page .sas-filters > div {position:relative; overflow:hidden; min-height:152px; transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;}
+.sas-page .sas-filters > div:hover {transform:translateY(-3px); box-shadow:0 16px 30px -20px rgba(20,40,80,.4);}
+.sas-page .sas-filters > div:focus-within {box-shadow:0 0 0 2px hsl(var(--ring)/.25);}
+.sas-page .sas-import-row {transition:transform .18s ease, background-color .18s ease, box-shadow .18s ease;}
+.sas-page .sas-import-row:hover {transform:translateY(-1px); background: hsl(var(--accent)/.25);box-shadow:0 6px 20px -14px rgba(0,0,0,.3);}
+.sas-page button {transition: transform .16s ease, filter .16s ease, box-shadow .16s ease;}
+.sas-page button:not(:disabled):hover {transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 8px 16px -11px rgba(0,0,0,.4);}
+.sas-page button:not(:disabled):active {transform:translateY(0);}
+.sas-page button:focus-visible {outline:2px solid hsl(var(--ring)); outline-offset:3px;}
+.sas-page .sas-metrics > div {border-radius:1.1rem;transition:transform .2s ease,box-shadow .2s ease;}
+.sas-page .sas-metrics > div:hover {transform:translateY(-3px);box-shadow:0 12px 26px -17px rgba(0,0,0,.34);}
+.sas-page .sas-skill-results > div {border-radius:1.25rem;overflow:hidden;transition:box-shadow .22s ease,transform .22s ease;}
+.sas-page .sas-skill-results > div:hover {box-shadow:0 15px 38px -25px rgba(0,0,0,.4);transform:translateY(-2px);}
+@media(prefers-reduced-motion:reduce){.sas-page *, .dashboard-modern * {transition:none !important;transform:none !important;}}
+.dashboard-modern .dashboard-kpi{border-radius:1.3rem;transition:transform .2s ease,box-shadow .2s ease;}
+.dashboard-modern .dashboard-kpi:hover{transform:translateY(-3px);box-shadow:0 16px 36px -22px rgba(0,0,0,.3);}
+.dashboard-modern a {transition:transform .15s ease,filter .15s ease;}
+.dashboard-modern a:hover{transform:translateY(-2px);filter:brightness(1.06);}
+
+/* Aptech attendance: consistent hierarchy, calm motion and accessible hover states */
+.sas-page {font-family: Inter, ui-sans-serif, system-ui, sans-serif; line-height:1.55;}
+.sas-hero {background:linear-gradient(122deg,#0a1529 0%,#182c4a 58%,#243f62 100%);box-shadow:0 16px 42px -24px #07152e;}
+.sas-hero-logo {box-shadow:0 8px 20px -12px #0006;}
+.sas-page .sas-panel {border:1px solid #e5eaf2; background-image:linear-gradient(140deg,rgba(255,255,255,.75),transparent 65%);}
+.dark .sas-page .sas-panel {border-color:#334155;background-image:none;}
+.sas-page .sas-panel [data-slot="card-title"] {color:#162640;font-weight:750;letter-spacing:-.025em;}
+.dark .sas-page .sas-panel [data-slot="card-title"] {color:#e7eefb;}
+.sas-page .sas-panel p:not([class*="font-bold"]):not([class*="font-semibold"]):not([class*="font-extrabold"]) {font-weight:400;}
+.sas-page .sas-panel [data-slot="card-content"] > div {line-height:1.65;}
+.sas-page .sas-skill-results [data-slot="card"] {border:1px solid #dbe4f2;}
+.sas-page .sas-skill-results [data-slot="card"]:hover {border-color:#99b5e2;}
+.sas-page .sas-skill-results [data-slot="table-head"] {font-weight:700;color:#243955;background:#f1f5fb;}
+.dark .sas-page .sas-skill-results [data-slot="table-head"] {background:#182638;color:#dce8f5;}
+.sas-page .sas-skill-results tbody tr:hover {background:#edf4ff80;}
+.sas-page .sas-footer {letter-spacing:.012em;}
+@media(prefers-reduced-motion:reduce){.sas-hero,.sas-panel{animation:none!important}}
+
+
+body {
+  font-family: Inter, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top right, rgba(255, 196, 61, 0.08), transparent 24%),
+    linear-gradient(180deg, #f9fafc 0%, #f5f7fb 100%);
+}
+
+h1,h2,h3,h4,[data-slot="card-title"] {
+  font-family: "Space Grotesk", Inter, ui-sans-serif, system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.sas-page .sas-hero {
+  background: linear-gradient(135deg, #0e1b33 0%, #162847 54%, #1d355a 100%);
+  border: 1px solid rgba(255, 196, 61, 0.18);
+}
+
+.sas-page .sas-hero h1 {
+  text-wrap: balance;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.96;
+}
+
+.sas-page .sas-panel,
+.dashboard-modern .dashboard-kpi {
+  background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(247,249,253,.96));
+  border-color: #e2e8f0;
+}
+
+.sas-page .sas-panel [data-slot="card-title"],
+.dashboard-modern h3,
+.dashboard-modern h2 {
+  font-weight: 800;
+}
+
+.sas-page .sas-panel p,
+.sas-page .sas-panel td,
+.sas-page .sas-panel th,
+.dashboard-modern p {
+  color: #46556f;
+}
+
+.sas-page .sas-panel .text-muted-foreground,
+.dashboard-modern .text-muted-foreground {
+  color: #6b7a90 !important;
+}
+
+.sas-page .sas-import-row,
+.sas-page .sas-skill-results [data-slot="card"] {
+  border-color: #d7e0ee;
+  background: rgba(255,255,255,.75);
+}
+
+.sas-page .sas-import-row:hover,
+.sas-page .sas-skill-results [data-slot="card"]:hover {
+  border-color: #8ba6cf;
+}
+
+.sas-page input,
+.sas-page button[role="combobox"] {
+  border-radius: .95rem;
+}
+
+.sas-page .sas-warning {
+  box-shadow: 0 10px 24px -18px rgba(146, 64, 14, 0.45);
+}
+
+.dashboard-modern > div:first-child {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+  border-color: #d7e0ee;
+}
+
+.dashboard-modern .rounded-3xl.border.border-indigo-200\/60 {
+  border-color: rgba(255, 196, 61, 0.22);
+  background: linear-gradient(135deg, #0f1c36, #193155 58%, #22446d);
+}
+
+[data-slot="sidebar"] {
+  background: linear-gradient(180deg, #0f1b34 0%, #12213d 60%, #142744 100%);
+}
+
+[data-slot="sidebar"] a,
+[data-slot="sidebar"] button {
+  border-radius: 0.9rem;
+}
+
+[data-slot="sidebar"] [data-active="true"],
+[data-slot="sidebar"] a:hover,
+[data-slot="sidebar"] button:hover {
+  background: rgba(255, 196, 61, 0.12);
+}
+
+
+.sas-page .sas-panel-first {margin-top: .25rem;}
+.sas-page .sas-panel-first [data-slot="card-header"] {padding-bottom: 1rem;}
+.sas-page .sas-panel-first [data-slot="card-content"] {padding-top: .25rem;}
+
+/* Keep import status visible near the file picker; imported files scroll inside their card. */
+.sas-import-list {scrollbar-width:thin; scrollbar-color:#b2c4dc transparent;}
+.sas-sidebar-active {position:relative; background:rgba(255,194,72,.12)!important; color:#fff!important;}
+.sas-sidebar-active::before {content:""; position:absolute; left:0; top:18%; bottom:18%; width:3px; border-radius:3px; background:#f9c54c;}
